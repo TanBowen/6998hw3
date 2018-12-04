@@ -30,7 +30,7 @@ $(document).ready(function() {
 		});
 		var params = {
 			//This is where any header, path, or querystring request params go. The key is the parameter named as defined in the API
-			"q": q
+			q: q
 		};
 		var body = {
 			//This is where you define the body of the request
@@ -43,8 +43,7 @@ $(document).ready(function() {
 			//This is where you would put a success callback
 			console.log(result);
 			console.log("worked!!")
-			var resp = JSON.parse(result.data.body);
-			var results = resp.results;
+			console.log(result.data.results)
 			console.log(result);
 		}).catch(function(result) {
 			//This is where you would put an error callback	

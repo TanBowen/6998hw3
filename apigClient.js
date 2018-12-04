@@ -122,13 +122,13 @@ apigClientFactory.newClient = function (config) {
     apigClient.uploadPut = function (params, body, additionalParams) {
         if(additionalParams === undefined) { additionalParams = {}; }
         
-        apiGateway.core.utils.assertParametersDefined(params, ['Content-Type', 'object'], ['body']);
+        apiGateway.core.utils.assertParametersDefined(params, ['Content-Type', 'object', 'x-api-key'], ['body']);
         
         var uploadPutRequest = {
             verb: 'put'.toUpperCase(),
             path: pathComponent + uritemplate('/upload').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
-            headers: apiGateway.core.utils.parseParametersToObject(params, ['Content-Type', ]),
-            queryParams: apiGateway.core.utils.parseParametersToObject(params, ['object']),
+            headers: apiGateway.core.utils.parseParametersToObject(params, ['Content-Type', 'x-api-key']),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, ['object', ]),
             body: body
         };
         

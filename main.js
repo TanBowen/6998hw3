@@ -12,30 +12,29 @@ $(document).ready(function() {
 			var xhr = new XMLHttpRequest(); 
 			xhr.open("PUT", "https://tpgm3w6oma.execute-api.us-east-1.amazonaws.com/stage1/upload?object=" + f.name);
 			xhr.setRequestHeader("Content-Type", f.type);
-			// xhr.setRequestHeader("x-api-key", "");
-			xhr.onload = function (event) { 
-				$("ul").append("<li>Uploaded: " + xhr.response + "</li>");
-			};
+			xhr.setRequestHeader("x-api-key", "53ZyTeRZRoafGfbcZkVKl7albvbexDgo2X9m3gY1");
+			// xhr.onload = function (event) { 
+			// };
 			xhr.send(f);
 		}
 		else {
-			alert("No file chosen!");
+			alert("Please first select a file");
 		}
 	});
-	$("#search_button").click(function(){
+	$("#search_button").click(() => {
 		var q = $('#search_query').val();
 		console.log(q);
-		var apigClient = apigClientFactory.newClient();
-		// var apigClient = apigClientFactory.newClient({
-		// 	// apiKey: 
-		// });
+		// var apigClient = apigClientFactory.newClient();
+		var apigClient = apigClientFactory.newClient({
+			apiKey: "53ZyTeRZRoafGfbcZkVKl7albvbexDgo2X9m3gY1"
+		});
 		var params = {
 			//This is where any header, path, or querystring request params go. The key is the parameter named as defined in the API
 			"q": q
 		};
 		var body = {
 			//This is where you define the body of the request
-			"q": q
+			// "q": q
 		};
 		var additionalParams = {
 			//If there are any unmodeled query parameters or headers that need to be sent with the request you can add them here
